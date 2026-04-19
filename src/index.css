@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200;300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-tamil: "Mukta Malar", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Mukta Malar", sans-serif;
+  
+  --color-sepia-bg: #fbf0d9;
+  --color-sepia-text: #3d2c18;
+}
+
+@layer base {
+  body {
+    @apply font-tamil transition-colors duration-200;
+  }
+}
+
+.theme-light {
+  --bg-color: #FDFBF7;
+  --text-color: #0d1221;
+  --text-secondary: #334155;
+  --accent-color: #4C1D95;
+  --secondary-color: #B45309;
+  --accent-soft: #EDE9FE;
+  --secondary-soft: #FEF3C7;
+  --border-color: #E2E8F0;
+  --card-bg: #FFFFFF;
+  --sidebar-bg: #F8FAFC;
+  --header-bg: #FFFFFF;
+  --kolam-dot: rgba(209, 213, 219, 0.4);
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.theme-sepia {
+  --bg-color: var(--color-sepia-bg);
+  --text-color: var(--color-sepia-text);
+  --text-secondary: #4a341a;
+  --accent-color: #431682;
+  --secondary-color: #9A3412;
+  --accent-soft: #EDE9FE;
+  --secondary-soft: #FEF3C7;
+  --card-bg: #f4e4c1;
+  --border-color: #e5d1a4;
+  --sidebar-bg: #f2e2c0;
+  --header-bg: #f4e4c1;
+  --kolam-dot: rgba(214, 211, 209, 0.35);
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.theme-dark {
+  --bg-color: theme('colors.slate.950');
+  --text-color: theme('colors.slate.100');
+  --text-secondary: theme('colors.slate.300');
+  --accent-color: theme('colors.purple.300');
+  --secondary-color: theme('colors.amber.400');
+  --accent-soft: rgba(139, 92, 246, 0.15);
+  --secondary-soft: rgba(245, 158, 11, 0.15);
+  --card-bg: theme('colors.slate.900');
+  --border-color: theme('colors.slate.800');
+  --sidebar-bg: theme('colors.slate.950');
+  --header-bg: theme('colors.slate.900');
+  --kolam-dot: rgba(75, 85, 99, 0.25);
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.bg-pulli-pattern {
+  background-image: radial-gradient(var(--kolam-dot) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+@layer utilities {
+  .animate-in {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+  }
+  .fade-in {
+    animation-name: fadeIn;
+  }
+  .slide-in-from-bottom-4 {
+    animation-name: slideInBottom;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInBottom {
+  from { transform: translateY(1rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
